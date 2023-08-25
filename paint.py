@@ -25,6 +25,7 @@ class Paint(object):
         self.choose_size_button = Scale(self.root, from_=1, to=10, orient=HORIZONTAL)
         self.choose_size_button.grid(row=0, column=4)
 
+        # add the undo button
         self.undo_button = Button(self.root, text='undo', command=self.undo)
         self.undo_button.grid(row=0, column=5)
 
@@ -43,6 +44,7 @@ class Paint(object):
         self.active_button = self.pen_button
         self.c.bind('<B1-Motion>', self.paint)
         self.c.bind('<ButtonRelease-1>', self.reset)
+        # initialize the variables
         self.all_drawn_lines = []
         self.drawn_line = []
 
@@ -69,6 +71,7 @@ class Paint(object):
         self.line_width = self.choose_size_button.get()
         paint_color = 'white' if self.eraser_on else self.color
         if self.old_x and self.old_y:
+            # store the lines drawn
             drawn_dot = self.c.create_line(self.old_x, self.old_y, event.x, event.y,
                                width=self.line_width, fill=paint_color,
                                capstyle=ROUND, smooth=TRUE, splinesteps=36)
@@ -78,6 +81,7 @@ class Paint(object):
         self.old_x = event.x
         self.old_y = event.y
 
+    # undo function
     def undo(self):
         if self.all_drawn_lines:
             last_line = self.all_drawn_lines.pop()
@@ -88,6 +92,7 @@ class Paint(object):
 
     def reset(self, event):
         self.old_x, self.old_y = None, None
+        # update and reset the variable
         self.all_drawn_lines.append(self.drawn_line)
         self.drawn_line = []
 
