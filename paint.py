@@ -6,6 +6,7 @@ from tkinter.colorchooser import askcolor
 from tkinter.ttk import *
 import os
 from PIL import Image
+import keyboard
 
 
 class Paint(object):
@@ -30,12 +31,15 @@ class Paint(object):
 
         self.color_btn = Btn(self.root, text='color', command=self.choose_color)
         self.color_btn.grid(row=0, column=1)
+        keyboard.add_hotkey('q', self.choose_color)
+
 
         self.eraser_btn = Btn(self.root, text='eraser', command=self.use_eraser)
         self.eraser_btn.grid(row=0, column=2)
 
         self.undo_button = Btn(self.root, text='undo', command=self.use_undo)
         self.undo_button.grid(row=0, column=3)
+        keyboard.add_hotkey('ctrl + z', self.use_undo)
 
         self.clear_btn = Btn(self.root, text='clear', command=lambda: self.c.delete("all"))
         self.clear_btn.grid(row=0, column=4)
@@ -73,7 +77,15 @@ class Paint(object):
 
     def choose_color(self):
         self.eraser_on = False
-        self.color = askcolor(color=self.color)[1]
+        self.color = askcolor(self.notag(self.color))[1]
+    
+    def notag (self, string):
+        #to remove the tag from the decimal
+        new_str = ""
+        for character in string:
+            if character != '#':
+                new_str += character
+        return new_str
 
     def use_eraser(self):
         self.activate_btn(self.eraser_btn, eraser_mode=True)
@@ -103,6 +115,7 @@ class Paint(object):
             last_line = self.all_drawn_lines.pop()
             for dots in last_line:
                 self.c.delete(dots)
+                
 
     def reset(self, event):
         self.old_x, self.old_y = None, None
