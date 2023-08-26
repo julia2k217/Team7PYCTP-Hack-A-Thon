@@ -78,14 +78,6 @@ class Paint(object):
     def choose_color(self):
         self.eraser_on = False
         self.color = askcolor(self.notag(self.color))[1]
-    
-    def notag (self, string):
-        #to remove the tag from the decimal
-        new_str = ""
-        for character in string:
-            if character != '#':
-                new_str += character
-        return new_str
 
     def use_eraser(self):
         self.activate_btn(self.eraser_btn, eraser_mode=True)
