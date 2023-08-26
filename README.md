@@ -3,6 +3,7 @@ A simple paint application using tkinter in Python 3
 By: Nikhil Kumar Singh
 https://gist.github.com/nikhilkumarsingh/85501ee2c3d8c0cfa9d1a27be5781f06
 
+
 Process overview
 Imagine you have a digital canvas that you can draw on, like a drawing app. The Python script you provided is like the set of instructions that creates this drawing app.
 
