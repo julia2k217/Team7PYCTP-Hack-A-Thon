@@ -77,7 +77,7 @@ class Paint(object):
 
     def choose_color(self):
         self.eraser_on = False
-        self.color = askcolor(self.notag(self.color))[1]
+        self.color = askcolor(color=self.color)[1]
 
     def use_eraser(self):
         self.activate_btn(self.eraser_btn, eraser_mode=True)
