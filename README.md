@@ -5,16 +5,27 @@ https://gist.github.com/nikhilkumarsingh/85501ee2c3d8c0cfa9d1a27be5781f06
 
 Process overview
 Imagine you have a digital canvas that you can draw on, like a drawing app. The Python script you provided is like the set of instructions that creates this drawing app.
+
 Here's what the script does in simpler terms:
+
 Getting Ready: The script starts by getting everything ready. It brings in tools (functions) from a library called "tkinter" that helps make the drawing app.
+
 Drawing Tools: It sets up different buttons for different drawing tools you can use. You have buttons for a pen, choosing colors, undo, clear, save and an eraser, just like in a real art kit.
+
 Canvas: The "canvas" is like your drawing paper. The script creates a big white canvas where you can draw. It also prepares for different things you might need while drawing.
+
 Starting to Draw: When you start the app, it's like opening your art kit. You can pick a tool to use, like a pen. The script knows which tool you picked and shows it as active.
+
 Picking Colors: If you want to use colors, there's a button to pick the color you want to draw with.
+
 Using the Eraser: You can also "erase" things you draw. It's like having a magic eraser that deletes your drawings. There's a button for this too. In reality the eraser is actually just white paint. 
+
 Changing Line Size: You can choose how thick or thin your lines will be. There's a tool to adjust this.
+
 Drawing: When you move your mouse while holding down the left button, the script draws on the canvas. If you choose a color, it draws with that color. If you're erasing, it erases. It uses your mouse movements to make lines.
+
 Stopping and Starting: When you let go of the mouse button, the script stops drawing. It's like lifting your pencil off the paper. If you start drawing again, the script knows where you left off and continues from there.
+
 Running the App: At the end of the script, it runs the drawing app. It's like turning on your app and being able to draw and use all those tools.
 
 So, this script helps you create a simple digital drawing app where you can use different tools to draw, erase, and choose colors on a canvas. It's like having a virtual art kit on your computer!
